@@ -9,7 +9,21 @@
     #password { margin-top: 20px; font-size: 18px; font-weight: bold; }
   </style>
 </head>
-<body>
+<hr>
+  <h1>📝 عداد الكلمات</h1>
+  <textarea id="textInput" rows="5" cols="40" placeholder="اكتب النص هنا..."></textarea><br>
+  <button onclick="countWords()">عد الكلمات</button>
+  <div id="result"></div>
+
+  <script>
+    function countWords() {
+      let text = document.getElementById("textInput").value.trim();
+      let words = text === "" ? 0 : text.split(/\s+/).length;
+      let chars = text.length;
+      document.getElementById("result").innerText =
+        "عدد الكلمات: " + words + " | عدد الحروف: " + chars;
+    }
+  </script><body>
   <h1>🔑 مولّد كلمات مرور قوية</h1>
   <button onclick="generatePassword()">أنشئ كلمة مرور</button>
   <div id="password"></div>
