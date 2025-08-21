@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مولّد كلمات مرور قوية</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    button, input { padding: 10px; margin: 5px; font-size: 16px; }
+    #password { margin-top: 20px; font-size: 18px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🔑 مولّد كلمات مرور قوية</h1>
+  <button onclick="generatePassword()">أنشئ كلمة مرور</button>
+  <div id="password"></div>
+
+  <script>
+    function generatePassword() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+      let password = "";
+      for (let i = 0; i < 12; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("password").innerText = "كلمة المرور: " + password;
+    }
+  </script>
+</body>
+</html>
