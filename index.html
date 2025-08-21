@@ -38,5 +38,36 @@
       document.getElementById("password").innerText = "كلمة المرور: " + password;
     }
   </script>
-</body>
+<hr>
+<h1>📄 أداة إختصار النصوص</h1>
+<textarea id="longText" rows="6" cols="50" placeholder="أدخل النص هنا..."></textarea><br>
+<select id="lang">
+  <option value="ar">العربية</option>
+  <option value="fr">Français</option>
+  <option value="en">English</option>
+</select>
+<br><br>
+<button onclick="summarize()">اختصر النص</button>
+<div id="summary" style="margin-top:15px; font-weight:bold;"></div>
+
+<script>
+  function summarize() {
+    let text = document.getElementById("longText").value.trim();
+    let lang = document.getElementById("lang").value;
+    if (text === "") {
+      document.getElementById("summary").innerText = "⚠️ الرجاء إدخال النص.";
+      return;
+    }
+    // نختصر النص بأول 100 حرف فقط (نسخة بسيطة)
+    let shortText = text.substring(0, 100);
+    if (text.length > 100) shortText += "...";
+
+    let message = "";
+    if (lang === "ar") message = "النص المختصر: " + shortText;
+    if (lang === "fr") message = "Texte résumé: " + shortText;
+    if (lang === "en") message = "Summary: " + shortText;
+
+    document.getElementById("summary").innerText = message;
+  }
+</script></body>
 </html>
